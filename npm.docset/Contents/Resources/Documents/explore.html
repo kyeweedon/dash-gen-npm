@@ -1,0 +1,39 @@
+<h1 id="npm-explore-1-browse-an-installed-package">npm-explore(1) -- Browse an installed package</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<pre><code>npm explore &lt;name&gt;[@&lt;version&gt;] [ -- &lt;cmd&gt;]
+</code></pre><h2 id="description">DESCRIPTION</h2>
+<p>Spawn a subshell in the directory of the installed package specified.</p>
+<p>If a command is specified, then it is run in the subshell, which then
+immediately terminates.</p>
+<p>This is particularly handy in the case of git submodules in the
+<code>node_modules</code> folder:</p>
+<pre><code>npm explore some-dependency -- git pull origin master
+</code></pre><p>Note that the package is <em>not</em> automatically rebuilt afterwards, so be
+sure to use <code>npm rebuild &lt;pkg&gt;</code> if you make any changes.</p>
+<h2 id="configuration">CONFIGURATION</h2>
+<h3 id="shell">shell</h3>
+<ul>
+<li>Default: SHELL environment variable, or &quot;bash&quot; on Posix, or &quot;cmd&quot; on
+Windows</li>
+<li>Type: path</li>
+</ul>
+<p>The shell to run for the <code>npm explore</code> command.</p>
+<h2 id="see-also">SEE ALSO</h2>
+<ul>
+<li>npm-submodule(1)</li>
+<li>npm-folders(5)</li>
+<li>npm-edit(1)</li>
+<li>npm-rebuild(1)</li>
+<li>npm-build(1)</li>
+<li>npm-install(1)</li>
+</ul>
+<h1 id="npm-explore-3-browse-an-installed-package">npm-explore(3) -- Browse an installed package</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<pre><code>npm.commands.explore(args, callback)
+</code></pre><h2 id="description">DESCRIPTION</h2>
+<p>Spawn a subshell in the directory of the installed package specified.</p>
+<p>If a command is specified, then it is run in the subshell, which then
+immediately terminates.</p>
+<p>Note that the package is <em>not</em> automatically rebuilt afterwards, so be
+sure to use <code>npm rebuild &lt;pkg&gt;</code> if you make any changes.</p>
+<p>The first element in the &#39;args&#39; parameter must be a package name.  After that is the optional command, which can be any number of strings. All of the strings will be combined into one, space-delimited command.</p>

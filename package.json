@@ -1,0 +1,30 @@
+{
+  "name": "dash-gen-npm",
+  "version": "0.0.1",
+  "description": "Dash documentation generator for npm",
+  "main": "gen.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kyeweedon/dash-gen-npm.git"
+  },
+  "keywords": [
+    "dash",
+    "docset",
+    "npm"
+  ],
+  "author": "Kye Weedon",
+  "bugs": {
+    "url": "https://github.com/kyeweedon/dash-gen-npm/issues"
+  },
+  "homepage": "https://github.com/kyeweedon/dash-gen-npm",
+  "dependencies": {
+    "marked": "^0.3.2",
+    "npm": "^1.4.10",
+    "rimraf": "^2.2.8",
+    "sqlite3": "^2.2.3",
+    "stylus": "^0.45.1"
+  }
+}

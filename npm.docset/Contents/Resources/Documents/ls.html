@@ -1,0 +1,106 @@
+<h1 id="npm-ls-1-list-installed-packages">npm-ls(1) -- List installed packages</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<pre><code>npm list [&lt;pkg&gt; ...]
+npm ls [&lt;pkg&gt; ...]
+npm la [&lt;pkg&gt; ...]
+npm ll [&lt;pkg&gt; ...]
+</code></pre><h2 id="description">DESCRIPTION</h2>
+<p>This command will print to stdout all the versions of packages that are
+installed, as well as their dependencies, in a tree-structure.</p>
+<p>Positional arguments are <code>name@version-range</code> identifiers, which will
+limit the results to only the paths to the packages named.  Note that
+nested packages will <em>also</em> show the paths to the specified packages.
+For example, running <code>npm ls promzard</code> in npm&#39;s source tree will show:</p>
+<pre><code>npm@@VERSION@ /path/to/npm
+└─┬ init-package-json@0.0.4
+  └── promzard@0.1.5
+</code></pre><p>It will print out extraneous, missing, and invalid packages.</p>
+<p>If a project specifies git urls for dependencies these are shown
+in parentheses after the name@version to make it easier for users to
+recognize potential forks of a project.</p>
+<p>When run as <code>ll</code> or <code>la</code>, it shows extended information by default.</p>
+<h2 id="configuration">CONFIGURATION</h2>
+<h3 id="json">json</h3>
+<ul>
+<li>Default: false</li>
+<li>Type: Boolean</li>
+</ul>
+<p>Show information in JSON format.</p>
+<h3 id="long">long</h3>
+<ul>
+<li>Default: false</li>
+<li>Type: Boolean</li>
+</ul>
+<p>Show extended information.</p>
+<h3 id="parseable">parseable</h3>
+<ul>
+<li>Default: false</li>
+<li>Type: Boolean</li>
+</ul>
+<p>Show parseable output instead of tree view.</p>
+<h3 id="global">global</h3>
+<ul>
+<li>Default: false</li>
+<li>Type: Boolean</li>
+</ul>
+<p>List packages in the global install prefix instead of in the current
+project.</p>
+<h3 id="depth">depth</h3>
+<ul>
+<li>Type: Int</li>
+</ul>
+<p>Max display depth of the dependency tree.</p>
+<h2 id="see-also">SEE ALSO</h2>
+<ul>
+<li>npm-config(1)</li>
+<li>npm-config(7)</li>
+<li>npmrc(5)</li>
+<li>npm-folders(5)</li>
+<li>npm-install(1)</li>
+<li>npm-link(1)</li>
+<li>npm-prune(1)</li>
+<li>npm-outdated(1)</li>
+<li>npm-update(1)</li>
+</ul>
+<h1 id="npm-ls-3-list-installed-packages">npm-ls(3) -- List installed packages</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<pre><code>npm.commands.ls(args, [silent,] callback)
+</code></pre><h2 id="description">DESCRIPTION</h2>
+<p>This command will print to stdout all the versions of packages that are
+installed, as well as their dependencies, in a tree-structure. It will also
+return that data using the callback.</p>
+<p>This command does not take any arguments, but args must be defined.
+Beyond that, if any arguments are passed in, npm will politely warn that it
+does not take positional arguments, though you may set config flags
+like with any other command, such as <code>global</code> to list global packages.</p>
+<p>It will print out extraneous, missing, and invalid packages.</p>
+<p>If the silent parameter is set to true, nothing will be output to the screen,
+but the data will still be returned.</p>
+<p>Callback is provided an error if one occurred, the full data about which
+packages are installed and which dependencies they will receive, and a
+&quot;lite&quot; data object which just shows which versions are installed where.
+Note that the full data object is a circular structure, so care must be
+taken if it is serialized to JSON.</p>
+<h2 id="configuration">CONFIGURATION</h2>
+<h3 id="long">long</h3>
+<ul>
+<li>Default: false</li>
+<li>Type: Boolean</li>
+</ul>
+<p>Show extended information.</p>
+<h3 id="parseable">parseable</h3>
+<ul>
+<li>Default: false</li>
+<li>Type: Boolean</li>
+</ul>
+<p>Show parseable output instead of tree view.</p>
+<h3 id="global">global</h3>
+<ul>
+<li>Default: false</li>
+<li>Type: Boolean</li>
+</ul>
+<p>List packages in the global install prefix instead of in the current
+project.</p>
+<p>Note, if parseable is set or long isn&#39;t set, then duplicates will be trimmed.
+This means that if a submodule a same dependency as a parent module, then the
+dependency will only be output once.</p>

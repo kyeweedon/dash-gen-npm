@@ -1,0 +1,31 @@
+<h1 id="npm-help-1-get-help-on-npm">npm-help(1) -- Get help on npm</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<pre><code>npm help &lt;topic&gt;
+npm help some search terms
+</code></pre><h2 id="description">DESCRIPTION</h2>
+<p>If supplied a topic, then show the appropriate documentation page.</p>
+<p>If the topic does not exist, or if multiple terms are provided, then run
+the <code>help-search</code> command to find a match.  Note that, if <code>help-search</code>
+finds a single subject, then it will run <code>help</code> on that topic, so unique
+matches are equivalent to specifying a topic name.</p>
+<h2 id="configuration">CONFIGURATION</h2>
+<h3 id="viewer">viewer</h3>
+<ul>
+<li>Default: &quot;man&quot; on Posix, &quot;browser&quot; on Windows</li>
+<li>Type: path</li>
+</ul>
+<p>The program to use to view help content.</p>
+<p>Set to <code>&quot;browser&quot;</code> to view html help content in the default web browser.</p>
+<h2 id="see-also">SEE ALSO</h2>
+<ul>
+<li>npm(1)</li>
+<li>README</li>
+<li>npm-faq(7)</li>
+<li>npm-folders(5)</li>
+<li>npm-config(1)</li>
+<li>npm-config(7)</li>
+<li>npmrc(5)</li>
+<li>package.json(5)</li>
+<li>npm-help-search(1)</li>
+<li>npm-index(7)</li>
+</ul>

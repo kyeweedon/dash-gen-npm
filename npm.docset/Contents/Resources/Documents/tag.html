@@ -1,0 +1,38 @@
+<h1 id="npm-tag-1-tag-a-published-version">npm-tag(1) -- Tag a published version</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<pre><code>npm tag &lt;name&gt;@&lt;version&gt; [&lt;tag&gt;]
+</code></pre><h2 id="description">DESCRIPTION</h2>
+<p>Tags the specified version of the package with the specified tag, or the
+<code>--tag</code> config if not specified.</p>
+<p>A tag can be used when installing packages as a reference to a version instead
+of using a specific version number:</p>
+<pre><code>npm install &lt;name&gt;@&lt;tag&gt;
+</code></pre><p>When installing dependencies, a preferred tagged version may be specified:</p>
+<pre><code>npm install --tag &lt;tag&gt;
+</code></pre><p>This also applies to <code>npm dedupe</code>.</p>
+<p>Publishing a package always sets the &quot;latest&quot; tag to the published version.</p>
+<h2 id="see-also">SEE ALSO</h2>
+<ul>
+<li>npm-publish(1)</li>
+<li>npm-install(1)</li>
+<li>npm-dedupe(1)</li>
+<li>npm-registry(7)</li>
+<li>npm-config(1)</li>
+<li>npm-config(7)</li>
+<li>npmrc(5)</li>
+</ul>
+<h1 id="npm-tag-3-tag-a-published-version">npm-tag(3) -- Tag a published version</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<pre><code>npm.commands.tag(package@version, tag, callback)
+</code></pre><h2 id="description">DESCRIPTION</h2>
+<p>Tags the specified version of the package with the specified tag, or the
+<code>--tag</code> config if not specified.</p>
+<p>The &#39;package@version&#39; is an array of strings, but only the first two elements are
+currently used.</p>
+<p>The first element must be in the form package@version, where package
+is the package name and version is the version number (much like installing a
+specific version).</p>
+<p>The second element is the name of the tag to tag this version with. If this
+parameter is missing or falsey (empty), the default froom the config will be
+used. For more information about how to set this config, check
+<code>man 3 npm-config</code> for programmatic usage or <code>man npm-config</code> for cli usage.</p>

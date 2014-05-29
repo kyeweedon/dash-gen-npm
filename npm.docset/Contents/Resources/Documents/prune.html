@@ -1,0 +1,27 @@
+<h1 id="npm-prune-1-remove-extraneous-packages">npm-prune(1) -- Remove extraneous packages</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<pre><code>npm prune [&lt;name&gt; [&lt;name ...]]
+npm prune [&lt;name&gt; [&lt;name ...]] [--production]
+</code></pre><h2 id="description">DESCRIPTION</h2>
+<p>This command removes &quot;extraneous&quot; packages.  If a package name is
+provided, then only packages matching one of the supplied names are
+removed.</p>
+<p>Extraneous packages are packages that are not listed on the parent
+package&#39;s dependencies list.</p>
+<p>If the <code>--production</code> flag is specified, this command will remove the
+packages specified in your <code>devDependencies</code>.</p>
+<h2 id="see-also">SEE ALSO</h2>
+<ul>
+<li>npm-rm(1)</li>
+<li>npm-folders(5)</li>
+<li>npm-ls(1)</li>
+</ul>
+<h1 id="npm-prune-3-remove-extraneous-packages">npm-prune(3) -- Remove extraneous packages</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<pre><code>npm.commands.prune([packages,] callback)
+</code></pre><h2 id="description">DESCRIPTION</h2>
+<p>This command removes &quot;extraneous&quot; packages.</p>
+<p>The first parameter is optional, and it specifies packages to be removed.</p>
+<p>No packages are specified, then all packages will be checked.</p>
+<p>Extraneous packages are packages that are not listed on the parent
+package&#39;s dependencies list.</p>

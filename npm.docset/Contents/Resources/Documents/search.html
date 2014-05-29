@@ -1,0 +1,60 @@
+<h1 id="npm-search-1-search-for-packages">npm-search(1) -- Search for packages</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<pre><code>npm search [--long] [search terms ...]
+npm s [search terms ...]
+npm se [search terms ...]
+</code></pre><h2 id="description">DESCRIPTION</h2>
+<p>Search the registry for packages matching the search terms.</p>
+<p>If a term starts with <code>/</code>, then it&#39;s interpreted as a regular expression.
+A trailing <code>/</code> will be ignored in this case.  (Note that many regular
+expression characters must be escaped or quoted in most shells.)</p>
+<h2 id="configuration">CONFIGURATION</h2>
+<h3 id="long">long</h3>
+<ul>
+<li>Default: false</li>
+<li>Type: Boolean</li>
+</ul>
+<p>Display full package descriptions and other long text across multiple
+lines. When disabled (default) search results are truncated to fit
+neatly on a single line. Modules with extremely long names will
+fall on multiple lines.</p>
+<h2 id="see-also">SEE ALSO</h2>
+<ul>
+<li>npm-registry(7)</li>
+<li>npm-config(1)</li>
+<li>npm-config(7)</li>
+<li>npmrc(5)</li>
+<li>npm-view(1)</li>
+</ul>
+<h1 id="npm-search-3-search-for-packages">npm-search(3) -- Search for packages</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<pre><code>npm.commands.search(searchTerms, [silent,] [staleness,] callback)
+</code></pre><h2 id="description">DESCRIPTION</h2>
+<p>Search the registry for packages matching the search terms. The available parameters are:</p>
+<ul>
+<li>searchTerms:
+Array of search terms. These terms are case-insensitive.</li>
+<li>silent:
+If true, npm will not log anything to the console.</li>
+<li>staleness:
+This is the threshold for stale packages. &quot;Fresh&quot; packages are not refreshed
+from the registry. This value is measured in seconds.</li>
+<li><p>callback:
+Returns an object where each key is the name of a package, and the value
+is information about that package along with a &#39;words&#39; property, which is
+a space-delimited string of all of the interesting words in that package.
+The only properties included are those that are searched, which generally include:</p>
+<ul>
+<li>name</li>
+<li>description</li>
+<li>maintainers</li>
+<li>url</li>
+<li>keywords</li>
+</ul>
+</li>
+</ul>
+<p>A search on the registry excludes any result that does not match all of the
+search terms. It also removes any items from the results that contain an
+excluded term (the &quot;searchexclude&quot; config). The search is case insensitive
+and doesn&#39;t try to read your mind (it doesn&#39;t do any verb tense matching or the
+like).</p>

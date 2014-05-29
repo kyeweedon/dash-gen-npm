@@ -1,0 +1,38 @@
+<h1 id="npm-run-script-1-run-arbitrary-package-scripts">npm-run-script(1) -- Run arbitrary package scripts</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<pre><code>npm run-script [&lt;pkg&gt;] [command]
+</code></pre><h2 id="description">DESCRIPTION</h2>
+<p>This runs an arbitrary command from a package&#39;s <code>&quot;scripts&quot;</code> object.
+If no package name is provided, it will search for a <code>package.json</code>
+in the current folder and use its <code>&quot;scripts&quot;</code> object. If no <code>&quot;command&quot;</code>
+is provided, it will list the available top level scripts.</p>
+<p>It is used by the test, start, restart, and stop commands, but can be
+called directly, as well.</p>
+<h2 id="see-also">SEE ALSO</h2>
+<ul>
+<li>npm-scripts(7)</li>
+<li>npm-test(1)</li>
+<li>npm-start(1)</li>
+<li>npm-restart(1)</li>
+<li>npm-stop(1)</li>
+</ul>
+<h1 id="npm-run-script-3-run-arbitrary-package-scripts">npm-run-script(3) -- Run arbitrary package scripts</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<pre><code>npm.commands.run-script(args, callback)
+</code></pre><h2 id="description">DESCRIPTION</h2>
+<p>This runs an arbitrary command from a package&#39;s &quot;scripts&quot; object.</p>
+<p>It is used by the test, start, restart, and stop commands, but can be
+called directly, as well.</p>
+<p>The &#39;args&#39; parameter is an array of strings. Behavior depends on the number
+of elements.  If there is only one element, npm assumes that the element
+represents a command to be run on the local repository. If there is more than
+one element, then the first is assumed to be the package and the second is
+assumed to be the command to run. All other elements are ignored.</p>
+<h2 id="see-also">SEE ALSO</h2>
+<ul>
+<li>npm-scripts(7)</li>
+<li>npm-test(3)</li>
+<li>npm-start(3)</li>
+<li>npm-restart(3)</li>
+<li>npm-stop(3)</li>
+</ul>

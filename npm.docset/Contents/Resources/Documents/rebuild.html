@@ -1,0 +1,26 @@
+<h1 id="npm-rebuild-1-rebuild-a-package">npm-rebuild(1) -- Rebuild a package</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<pre><code>npm rebuild [&lt;name&gt; [&lt;name&gt; ...]]
+npm rb [&lt;name&gt; [&lt;name&gt; ...]]
+</code></pre><ul>
+<li><code>&lt;name&gt;</code>:
+The package to rebuild</li>
+</ul>
+<h2 id="description">DESCRIPTION</h2>
+<p>This command runs the <code>npm build</code> command on the matched folders.  This is useful
+when you install a new version of node, and must recompile all your C++ addons with
+the new binary.</p>
+<h2 id="see-also">SEE ALSO</h2>
+<ul>
+<li>npm-build(1)</li>
+<li>npm-install(1)</li>
+</ul>
+<h1 id="npm-rebuild-3-rebuild-a-package">npm-rebuild(3) -- Rebuild a package</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<pre><code>npm.commands.rebuild([packages,] callback)
+</code></pre><h2 id="description">DESCRIPTION</h2>
+<p>This command runs the <code>npm build</code> command on each of the matched packages.  This is useful
+when you install a new version of node, and must recompile all your C++ addons with
+the new binary. If no &#39;packages&#39; parameter is specify, every package will be rebuilt.</p>
+<h2 id="configuration">CONFIGURATION</h2>
+<p>See <code>npm help build</code></p>

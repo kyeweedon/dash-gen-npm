@@ -1,0 +1,43 @@
+<h1 id="npm-deprecate-1-deprecate-a-version-of-a-package">npm-deprecate(1) -- Deprecate a version of a package</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<pre><code>npm deprecate &lt;name&gt;[@&lt;version&gt;] &lt;message&gt;
+</code></pre><h2 id="description">DESCRIPTION</h2>
+<p>This command will update the npm registry entry for a package, providing
+a deprecation warning to all who attempt to install it.</p>
+<p>It works on version ranges as well as specific versions, so you can do
+something like this:</p>
+<pre><code>npm deprecate my-thing@&quot;&lt; 0.2.3&quot; &quot;critical bug fixed in v0.2.3&quot;
+</code></pre><p>Note that you must be the package owner to deprecate something.  See the
+<code>owner</code> and <code>adduser</code> help topics.</p>
+<p>To un-deprecate a package, specify an empty string (<code>&quot;&quot;</code>) for the <code>message</code> argument.</p>
+<h2 id="see-also">SEE ALSO</h2>
+<ul>
+<li>npm-publish(1)</li>
+<li>npm-registry(7)</li>
+</ul>
+<h1 id="npm-deprecate-3-deprecate-a-version-of-a-package">npm-deprecate(3) -- Deprecate a version of a package</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<pre><code>npm.commands.deprecate(args, callback)
+</code></pre><h2 id="description">DESCRIPTION</h2>
+<p>This command will update the npm registry entry for a package, providing
+a deprecation warning to all who attempt to install it.</p>
+<p>The &#39;args&#39; parameter must have exactly two elements:</p>
+<ul>
+<li><p><code>package[@version]</code></p>
+<p>  The <code>version</code> portion is optional, and may be either a range, or a
+  specific version, or a tag.</p>
+</li>
+<li><p><code>message</code></p>
+<p>  The warning message that will be printed whenever a user attempts to
+  install the package.</p>
+</li>
+</ul>
+<p>Note that you must be the package owner to deprecate something.  See the
+<code>owner</code> and <code>adduser</code> help topics.</p>
+<p>To un-deprecate a package, specify an empty string (<code>&quot;&quot;</code>) for the <code>message</code> argument.</p>
+<h2 id="see-also">SEE ALSO</h2>
+<ul>
+<li>npm-publish(3)</li>
+<li>npm-unpublish(3)</li>
+<li>npm-registry(7)</li>
+</ul>

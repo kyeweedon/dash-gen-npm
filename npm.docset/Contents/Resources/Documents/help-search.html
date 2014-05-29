@@ -1,0 +1,48 @@
+<h1 id="npm-help-search-1-search-npm-help-documentation">npm-help-search(1) -- Search npm help documentation</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<pre><code>npm help-search some search terms
+</code></pre><h2 id="description">DESCRIPTION</h2>
+<p>This command will search the npm markdown documentation files for the
+terms provided, and then list the results, sorted by relevance.</p>
+<p>If only one result is found, then it will show that help topic.</p>
+<p>If the argument to <code>npm help</code> is not a known help topic, then it will
+call <code>help-search</code>.  It is rarely if ever necessary to call this
+command directly.</p>
+<h2 id="configuration">CONFIGURATION</h2>
+<h3 id="long">long</h3>
+<ul>
+<li>Type: Boolean</li>
+<li>Default false</li>
+</ul>
+<p>If true, the &quot;long&quot; flag will cause help-search to output context around
+where the terms were found in the documentation.</p>
+<p>If false, then help-search will just list out the help topics found.</p>
+<h2 id="see-also">SEE ALSO</h2>
+<ul>
+<li>npm(1)</li>
+<li>npm-faq(7)</li>
+<li>npm-help(1)</li>
+</ul>
+<h1 id="npm-help-search-3-search-the-help-pages">npm-help-search(3) -- Search the help pages</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<pre><code>npm.commands.helpSearch(args, [silent,] callback)
+</code></pre><h2 id="description">DESCRIPTION</h2>
+<p>This command is rarely useful, but it exists in the rare case that it is.</p>
+<p>This command takes an array of search terms and returns the help pages that
+match in order of best match.</p>
+<p>If there is only one match, then npm displays that help section. If there
+are multiple results, the results are printed to the screen formatted and the
+array of results is returned. Each result is an object with these properties:</p>
+<ul>
+<li>hits:
+A map of args to number of hits on that arg. For example, {&quot;npm&quot;: 3}</li>
+<li>found:
+Total number of unique args that matched.</li>
+<li>totalHits:
+Total number of hits.</li>
+<li>lines:
+An array of all matching lines (and some adjacent lines).</li>
+<li>file:
+Name of the file that matched</li>
+</ul>
+<p>The silent parameter is not neccessary not used, but it may in the future.</p>

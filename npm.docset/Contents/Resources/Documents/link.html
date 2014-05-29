@@ -1,0 +1,66 @@
+<h1 id="npm-link-1-symlink-a-package-folder">npm-link(1) -- Symlink a package folder</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<pre><code>npm link (in package folder)
+npm link &lt;pkgname&gt;
+npm ln (with any of the previous argument usage)
+</code></pre><h2 id="description">DESCRIPTION</h2>
+<p>Package linking is a two-step process.</p>
+<p>First, <code>npm link</code> in a package folder will create a globally-installed
+symbolic link from <code>prefix/package-name</code> to the current folder.</p>
+<p>Next, in some other location, <code>npm link package-name</code> will create a
+symlink from the local <code>node_modules</code> folder to the global symlink.</p>
+<p>Note that <code>package-name</code> is taken from <code>package.json</code>,
+not from directory name.</p>
+<p>When creating tarballs for <code>npm publish</code>, the linked packages are
+&quot;snapshotted&quot; to their current state by resolving the symbolic links.</p>
+<p>This is
+handy for installing your own stuff, so that you can work on it and test it
+iteratively without having to continually rebuild.</p>
+<p>For example:</p>
+<pre><code>cd ~/projects/node-redis    # go into the package directory
+npm link                    # creates global link
+cd ~/projects/node-bloggy   # go into some other package directory.
+npm link redis              # link-install the package
+</code></pre><p>Now, any changes to ~/projects/node-redis will be reflected in
+~/projects/node-bloggy/node_modules/redis/</p>
+<p>You may also shortcut the two steps in one.  For example, to do the
+above use-case in a shorter way:</p>
+<pre><code>cd ~/projects/node-bloggy  # go into the dir of your main project
+npm link ../node-redis     # link the dir of your dependency
+</code></pre><p>The second line is the equivalent of doing:</p>
+<pre><code>(cd ../node-redis; npm link)
+npm link redis
+</code></pre><p>That is, it first creates a global link, and then links the global
+installation target into your project&#39;s <code>node_modules</code> folder.</p>
+<h2 id="see-also">SEE ALSO</h2>
+<ul>
+<li>npm-developers(7)</li>
+<li>npm-faq(7)</li>
+<li>package.json(5)</li>
+<li>npm-install(1)</li>
+<li>npm-folders(5)</li>
+<li>npm-config(1)</li>
+<li>npm-config(7)</li>
+<li>npmrc(5)</li>
+</ul>
+<h1 id="npm-link-3-symlink-a-package-folder">npm-link(3) -- Symlink a package folder</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<pre><code>npm.command.link(callback)
+npm.command.link(packages, callback)
+</code></pre><h2 id="description">DESCRIPTION</h2>
+<p>Package linking is a two-step process.</p>
+<p>Without parameters, link will create a globally-installed
+symbolic link from <code>prefix/package-name</code> to the current folder.</p>
+<p>With a parameters, link will create a symlink from the local <code>node_modules</code>
+folder to the global symlink.</p>
+<p>When creating tarballs for <code>npm publish</code>, the linked packages are
+&quot;snapshotted&quot; to their current state by resolving the symbolic links.</p>
+<p>This is
+handy for installing your own stuff, so that you can work on it and test it
+iteratively without having to continually rebuild.</p>
+<p>For example:</p>
+<pre><code>npm.commands.link(cb)           # creates global link from the cwd
+                                # (say redis package)
+npm.commands.link(&#39;redis&#39;, cb)  # link-install the package
+</code></pre><p>Now, any changes to the redis package will be reflected in
+the package in the current working directory</p>

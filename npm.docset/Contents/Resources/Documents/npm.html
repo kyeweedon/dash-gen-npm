@@ -1,0 +1,210 @@
+<h1 id="npm-1-node-package-manager">npm(1) -- node package manager</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<pre><code>npm &lt;command&gt; [args]
+</code></pre><h2 id="version">VERSION</h2>
+<p>@VERSION@</p>
+<h2 id="description">DESCRIPTION</h2>
+<p>npm is the package manager for the Node JavaScript platform.  It puts
+modules in place so that node can find them, and manages dependency
+conflicts intelligently.</p>
+<p>It is extremely configurable to support a wide variety of use cases.
+Most commonly, it is used to publish, discover, install, and develop node
+programs.</p>
+<p>Run <code>npm help</code> to get a list of available commands.</p>
+<h2 id="introduction">INTRODUCTION</h2>
+<p>You probably got npm because you want to install stuff.</p>
+<p>Use <code>npm install blerg</code> to install the latest version of &quot;blerg&quot;.  Check out
+<code>npm-install(1)</code> for more info.  It can do a lot of stuff.</p>
+<p>Use the <code>npm search</code> command to show everything that&#39;s available.
+Use <code>npm ls</code> to show everything you&#39;ve installed.</p>
+<h2 id="directories">DIRECTORIES</h2>
+<p>See <code>npm-folders(5)</code> to learn about where npm puts stuff.</p>
+<p>In particular, npm has two modes of operation:</p>
+<ul>
+<li>global mode:<br>npm installs packages into the install prefix at
+<code>prefix/lib/node_modules</code> and bins are installed in <code>prefix/bin</code>.</li>
+<li>local mode:<br>npm installs packages into the current project directory, which
+defaults to the current working directory.  Packages are installed to
+<code>./node_modules</code>, and bins are installed to <code>./node_modules/.bin</code>.</li>
+</ul>
+<p>Local mode is the default.  Use <code>--global</code> or <code>-g</code> on any command to
+operate in global mode instead.</p>
+<h2 id="developer-usage">DEVELOPER USAGE</h2>
+<p>If you&#39;re using npm to develop and publish your code, check out the
+following help topics:</p>
+<ul>
+<li>json:
+Make a package.json file.  See <code>package.json(5)</code>.</li>
+<li>link:
+For linking your current working code into Node&#39;s path, so that you
+don&#39;t have to reinstall every time you make a change.  Use
+<code>npm link</code> to do this.</li>
+<li>install:
+It&#39;s a good idea to install things if you don&#39;t need the symbolic link.
+Especially, installing other peoples code from the registry is done via
+<code>npm install</code></li>
+<li>adduser:
+Create an account or log in.  Credentials are stored in the
+user config file.</li>
+<li>publish:
+Use the <code>npm publish</code> command to upload your code to the registry.</li>
+</ul>
+<h2 id="configuration">CONFIGURATION</h2>
+<p>npm is extremely configurable.  It reads its configuration options from
+5 places.</p>
+<ul>
+<li>Command line switches:<br>Set a config with <code>--key val</code>.  All keys take a value, even if they
+are booleans (the config parser doesn&#39;t know what the options are at
+the time of parsing.)  If no value is provided, then the option is set
+to boolean <code>true</code>.</li>
+<li>Environment Variables:<br>Set any config by prefixing the name in an environment variable with
+<code>npm_config_</code>.  For example, <code>export npm_config_key=val</code>.</li>
+<li>User Configs:<br>The file at $HOME/.npmrc is an ini-formatted list of configs.  If
+present, it is parsed.  If the <code>userconfig</code> option is set in the cli
+or env, then that will be used instead.</li>
+<li>Global Configs:<br>The file found at ../etc/npmrc (from the node executable, by default
+this resolves to /usr/local/etc/npmrc) will be parsed if it is found.
+If the <code>globalconfig</code> option is set in the cli, env, or user config,
+then that file is parsed instead.</li>
+<li>Defaults:<br>npm&#39;s default configuration options are defined in
+lib/utils/config-defs.js.  These must not be changed.</li>
+</ul>
+<p>See <code>npm-config(7)</code> for much much more information.</p>
+<h2 id="contributions">CONTRIBUTIONS</h2>
+<p>Patches welcome!</p>
+<ul>
+<li>code:
+Read through <code>npm-coding-style(7)</code> if you plan to submit code.
+You don&#39;t have to agree with it, but you do have to follow it.</li>
+<li>docs:
+If you find an error in the documentation, edit the appropriate markdown
+file in the &quot;doc&quot; folder.  (Don&#39;t worry about generating the man page.)</li>
+</ul>
+<p>Contributors are listed in npm&#39;s <code>package.json</code> file.  You can view them
+easily by doing <code>npm view npm contributors</code>.</p>
+<p>If you would like to contribute, but don&#39;t know what to work on, check
+the issues list or ask on the mailing list.</p>
+<ul>
+<li><a href="http://github.com/npm/npm/issues">http://github.com/npm/npm/issues</a></li>
+<li><a href="&#109;&#x61;&#x69;&#108;&#x74;&#111;&#x3a;&#x6e;&#x70;&#109;&#45;&#64;&#103;&#x6f;&#x6f;&#103;&#x6c;&#x65;&#103;&#x72;&#x6f;&#117;&#x70;&#x73;&#46;&#x63;&#x6f;&#109;">&#x6e;&#x70;&#109;&#45;&#64;&#103;&#x6f;&#x6f;&#103;&#x6c;&#x65;&#103;&#x72;&#x6f;&#117;&#x70;&#x73;&#46;&#x63;&#x6f;&#109;</a></li>
+</ul>
+<h2 id="bugs">BUGS</h2>
+<p>When you find issues, please report them:</p>
+<ul>
+<li>web:
+<a href="http://github.com/npm/npm/issues">http://github.com/npm/npm/issues</a></li>
+<li>email:
+<a href="&#109;&#x61;&#x69;&#108;&#x74;&#x6f;&#x3a;&#110;&#x70;&#109;&#45;&#x40;&#103;&#x6f;&#x6f;&#x67;&#108;&#101;&#103;&#x72;&#111;&#117;&#x70;&#x73;&#46;&#99;&#111;&#109;">&#110;&#x70;&#109;&#45;&#x40;&#103;&#x6f;&#x6f;&#x67;&#108;&#101;&#103;&#x72;&#111;&#117;&#x70;&#x73;&#46;&#99;&#111;&#109;</a></li>
+</ul>
+<p>Be sure to include <em>all</em> of the output from the npm command that didn&#39;t work
+as expected.  The <code>npm-debug.log</code> file is also helpful to provide.</p>
+<p>You can also look for isaacs in #node.js on irc://irc.freenode.net.  He
+will no doubt tell you to put the output in a gist or email.</p>
+<h2 id="author">AUTHOR</h2>
+<p><a href="http://blog.izs.me/">Isaac Z. Schlueter</a> ::
+<a href="https://github.com/isaacs/">isaacs</a> ::
+<a href="http://twitter.com/izs">@izs</a> ::
+<a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#111;&#58;&#105;&#64;&#105;&#x7a;&#x73;&#46;&#109;&#x65;">&#105;&#64;&#105;&#x7a;&#x73;&#46;&#109;&#x65;</a></p>
+<h2 id="see-also">SEE ALSO</h2>
+<ul>
+<li>npm-help(1)</li>
+<li>npm-faq(7)</li>
+<li>README</li>
+<li>package.json(5)</li>
+<li>npm-install(1)</li>
+<li>npm-config(1)</li>
+<li>npm-config(7)</li>
+<li>npmrc(5)</li>
+<li>npm-index(7)</li>
+<li>npm(3)</li>
+</ul>
+<h1 id="npm-3-node-package-manager">npm(3) -- node package manager</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<pre><code>var npm = require(&quot;npm&quot;)
+npm.load([configObject, ]function (er, npm) {
+  // use the npm object, now that it&#39;s loaded.
+
+  npm.config.set(key, val)
+  val = npm.config.get(key)
+
+  console.log(&quot;prefix = %s&quot;, npm.prefix)
+
+  npm.commands.install([&quot;package&quot;], cb)
+})
+</code></pre><h2 id="version">VERSION</h2>
+<p>@VERSION@</p>
+<h2 id="description">DESCRIPTION</h2>
+<p>This is the API documentation for npm.
+To find documentation of the command line
+client, see <code>npm(1)</code>.</p>
+<p>Prior to using npm&#39;s commands, <code>npm.load()</code> must be called.
+If you provide <code>configObject</code> as an object hash of top-level
+configs, they override the values stored in the various config
+locations. In the npm command line client, this set of configs
+is parsed from the command line options. Additional configuration
+params are loaded from two configuration files. See <code>npm-config(1)</code>,
+<code>npm-config(7)</code>, and <code>npmrc(5)</code> for more information.</p>
+<p>After that, each of the functions are accessible in the
+commands object: <code>npm.commands.&lt;cmd&gt;</code>.  See <code>npm-index(7)</code> for a list of
+all possible commands.</p>
+<p>All commands on the command object take an <strong>array</strong> of positional argument
+<strong>strings</strong>. The last argument to any function is a callback. Some
+commands take other optional arguments.</p>
+<p>Configs cannot currently be set on a per function basis, as each call to
+npm.config.set will change the value for <em>all</em> npm commands in that process.</p>
+<p>To find API documentation for a specific command, run the <code>npm apihelp</code>
+command.</p>
+<h2 id="methods-and-properties">METHODS AND PROPERTIES</h2>
+<ul>
+<li><p><code>npm.load(configs, cb)</code></p>
+<p>  Load the configuration params, and call the <code>cb</code> function once the
+  globalconfig and userconfig files have been loaded as well, or on
+  nextTick if they&#39;ve already been loaded.</p>
+</li>
+<li><p><code>npm.config</code></p>
+<p>  An object for accessing npm configuration parameters.</p>
+<ul>
+<li><code>npm.config.get(key)</code></li>
+<li><code>npm.config.set(key, val)</code></li>
+<li><code>npm.config.del(key)</code></li>
+</ul>
+</li>
+<li><p><code>npm.dir</code> or <code>npm.root</code></p>
+<p>  The <code>node_modules</code> directory where npm will operate.</p>
+</li>
+<li><p><code>npm.prefix</code></p>
+<p>  The prefix where npm is operating.  (Most often the current working
+  directory.)</p>
+</li>
+<li><p><code>npm.cache</code></p>
+<p>  The place where npm keeps JSON and tarballs it fetches from the
+  registry (or uploads to the registry).</p>
+</li>
+<li><p><code>npm.tmp</code></p>
+<p>  npm&#39;s temporary working directory.</p>
+</li>
+<li><p><code>npm.deref</code></p>
+<p>  Get the &quot;real&quot; name for a command that has either an alias or
+  abbreviation.</p>
+</li>
+</ul>
+<h2 id="magic">MAGIC</h2>
+<p>For each of the methods in the <code>npm.commands</code> hash, a method is added to
+the npm object, which takes a set of positional string arguments rather
+than an array and a callback.</p>
+<p>If the last argument is a callback, then it will use the supplied
+callback.  However, if no callback is provided, then it will print out
+the error or results.</p>
+<p>For example, this would work in a node repl:</p>
+<pre><code>&gt; npm = require(&quot;npm&quot;)
+&gt; npm.load()  // wait a sec...
+&gt; npm.install(&quot;dnode&quot;, &quot;express&quot;)
+</code></pre><p>Note that that <em>won&#39;t</em> work in a node program, since the <code>install</code>
+method will get called before the configuration load is completed.</p>
+<h2 id="abbrevs">ABBREVS</h2>
+<p>In order to support <code>npm ins foo</code> instead of <code>npm install foo</code>, the
+<code>npm.commands</code> object has a set of abbreviations as well as the full
+method names.  Use the <code>npm.deref</code> method to find the real name.</p>
+<p>For example:</p>
+<pre><code>var cmd = npm.deref(&quot;unp&quot;) // cmd === &quot;unpublish&quot;
+</code></pre>
